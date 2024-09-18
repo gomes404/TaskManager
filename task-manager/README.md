@@ -31,33 +31,33 @@ This Task Manager is a full-stack web application built with React for the front
 
 task-manager/
 ├── src/
-│ ├── components/
-│ │ ├── Login.js
-│ │ ├── Registration.js
-│ │ ├── TaskList.js
-│ │ ├── TaskForm.js
-│ │ ├── PrivateRoute.js
-│ │ └── ThemeToggle.js
-│ ├── utils/
-│ │ └── axios.js
-│ ├── App.js
-│ ├── App.css
-│ ├── index.js
-│ └── ThemeContext.js
+│   ├── components/
+│   │   ├── Login.js
+│   │   ├── Registration.js
+│   │   ├── TaskList.js
+│   │   ├── TaskForm.js
+│   │   ├── PrivateRoute.js
+│   │   ├── ThemeToggle.js
+│   ├── utils/
+│   │   └── axios.js
+│   ├── App.js
+│   ├── App.css
+│   ├── index.js
+│   ├── ThemeContext.js
 ├── public/
-│ └── index.html
-└── README.md
-task-manager-be/
-├── models/
-│ ├── User.js
-│ └── Task.js
-├── routes/
-│ ├── auth.js
-│ └── task.js
-├── middleware/
-│ └── auth.js
-├── server.js
-└── README.md
+│   └── index.html
+├── README.md
+├── task-manager-be/
+│   ├── models/
+│   │   ├── User.js
+│   │   └── Task.js
+│   ├── routes/
+│   │   └── auth.js
+│   ├── middleware/
+│   │   └── auth.js
+│   ├── server.js
+│   └── README.md
+
 
 
 ## Getting Started
