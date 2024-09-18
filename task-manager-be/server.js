@@ -5,11 +5,15 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/auth.js';
 import taskRoutes from './routes/task.js';
 
+// Load environment variables
 dotenv.config();
 
+// Initialize Express app
 const app = express();
-app.use(cors()); 
-app.use(express.json()); 
+
+// Middleware
+app.use(cors()); // Enable CORS for all routes
+app.use(express.json()); // Parse JSON request bodies
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
@@ -17,8 +21,8 @@ mongoose.connect(process.env.MONGO_URI)
   .catch(err => console.error('MongoDB connection error:', err));
 
 // Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/tasks', taskRoutes);
+app.use('/api/auth', authRoutes); // Authentication routes
+app.use('/api/tasks', taskRoutes); // Task management routes
 
 // Start the server
 const PORT = process.env.PORT || 5000;

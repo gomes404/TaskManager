@@ -1,12 +1,16 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
+// Create a context for the theme
 const ThemeContext = createContext();
 
+// Custom hook to use the theme context
 export const useTheme = () => useContext(ThemeContext);
 
+// ThemeProvider component to manage theme state
 export const ThemeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(true); // Set default to true for dark mode
 
+  // Load saved theme from localStorage on initial render
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
@@ -17,6 +21,7 @@ export const ThemeProvider = ({ children }) => {
     }
   }, []);
 
+  // Update body class and localStorage when theme changes
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add('dark-mode');
@@ -27,6 +32,7 @@ export const ThemeProvider = ({ children }) => {
     }
   }, [isDarkMode]);
 
+  // Function to toggle theme
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
   };

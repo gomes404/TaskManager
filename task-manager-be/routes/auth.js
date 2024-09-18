@@ -9,18 +9,17 @@ const router = express.Router();
 router.post('/register', async (req, res) => {
   const { username, password } = req.body;
   try {
-    console.log('Registration attempt for username:', username);
+    // Check if user already exists
     const existingUser = await User.findOne({ username });
-    console.log('Existing user:', existingUser);
     if (existingUser) return res.status(400).json({ message: 'User already exists' });
 
+    // Hash the password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
+    // Create and save new user
     const user = new User({ username, password: hashedPassword });
-    console.log('User object created:', user);
-    const savedUser = await user.save();
-    console.log('User saved to database:', savedUser);
+    await user.save();
 
     res.status(201).json({ message: 'User registered successfully' });
   } catch (err) {
@@ -33,16 +32,19 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
   try {
+    // Find user by username
     const user = await User.findOne({ username });
     if (!user) {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
     
+    // Verify password
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
 
+    // Generate JWT token
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
     res.json({ token });
   } catch (err) {

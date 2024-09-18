@@ -8,6 +8,7 @@ import ThemeToggle from './components/ThemeToggle';
 import { ThemeProvider, useTheme } from './ThemeContext';
 import './App.css';
 
+// AppContent component to handle theme and routing
 function AppContent() {
   const { isDarkMode } = useTheme();
 
@@ -24,6 +25,7 @@ function AppContent() {
   );
 }
 
+// Main App component
 function App() {
   return (
     <ThemeProvider>
