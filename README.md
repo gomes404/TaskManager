@@ -31,33 +31,49 @@ This Task Manager is a full-stack web application built with React for the front
 
 ```
 task-manager/
+├── public/
+│   ├── index.html
+│   ├── manifest.json
+│   └── robots.txt
 ├── src/
 │   ├── components/
 │   │   ├── Login.js
-│   │   ├── Registration.js
-│   │   ├── TaskList.js
-│   │   ├── TaskForm.js
 │   │   ├── PrivateRoute.js
-│   │   ├── ThemeToggle.js
+│   │   ├── Registration.js
+│   │   ├── TaskColumn.js
+│   │   ├── TaskForm.js
+│   │   ├── TaskItem.js
+│   │   ├── TaskList.js
+│   │   └── ThemeToggle.js
 │   ├── utils/
-│   │   └── axios.js
-│   ├── App.js
+│   │   ├── axios.js
+│   │   └── taskUtils.js
 │   ├── App.css
+│   ├── App.js
+│   ├── App.test.js
+│   ├── index.css
 │   ├── index.js
-│   ├── ThemeContext.js
-├── public/
-│   └── index.html
-├── README.md
-├── task-manager-be/
-│   ├── models/
-│   │   ├── User.js
-│   │   └── Task.js
-│   ├── routes/
-│   │   └── auth.js
-│   ├── middleware/
-│   │   └── auth.js
-│   ├── server.js
-│   └── README.md
+│   ├── reportWebVitals.js
+│   ├── setupTests.js
+│   ├── TaskManager.css
+│   └── ThemeContext.js
+├── .gitignore
+├── package.json
+└── README.md
+
+task-manager-be/
+├── middleware/
+│   └── auth.js
+├── models/
+│   ├── Task.js
+│   └── User.js
+├── routes/
+│   ├── auth.js
+│   └── task.js
+├── .vscode/
+│   └── settings.json
+├── package.json
+└── server.js
 ```
 
 
