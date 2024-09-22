@@ -6,26 +6,30 @@ import TaskList from './components/TaskList';
 import PrivateRoute from './components/PrivateRoute';
 import ThemeToggle from './components/ThemeToggle';
 import { ThemeProvider, useTheme } from './ThemeContext';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import './TaskManager.css';
 
-// AppContent component to handle theme and routing
 function AppContent() {
   const { isDarkMode } = useTheme();
 
   return (
     <div className={`app-container ${isDarkMode ? 'dark-mode' : ''}`}>
       <ThemeToggle />
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/tasks" element={<PrivateRoute><TaskList /></PrivateRoute>} />
-        <Route path="/" element={<Navigate to="/login" replace />} />
-      </Routes>
+      <ToastContainer />
+      <div className="main-content">
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/tasks" element={<PrivateRoute><TaskList /></PrivateRoute>} />
+          <Route path="/" element={<Navigate to="/login" replace />} />
+        </Routes>
+      </div>
     </div>
   );
 }
 
-// Main App component
 function App() {
   return (
     <ThemeProvider>

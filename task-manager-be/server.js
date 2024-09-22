@@ -20,6 +20,11 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB connection error:', err));
 
+// Add this near the top of your file
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Server is running' });
+});
+
 // Routes
 app.use('/api/auth', authRoutes); // Authentication routes
 app.use('/api/tasks', taskRoutes); // Task management routes
